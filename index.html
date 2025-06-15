@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Genrator Free</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Qr Genrator</h1>
+        <input id="text" placeholder="Enter your text" type="text">
+        <img id="img" src="" alt="" srcset="">
+
+        <button id="btn">Genarate</button>
+        <button id="download">download</button>
+        <p>Design by <span>Ujjal05</span> | 2k25</p>
+
+    </div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+            let data = document.getElementById("text").value;
+            document.getElementById("img").src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= "+data;
+            document.getElementById("img").style.display="flex";
+        });
+
+          const textInput = document.getElementById("text");
+  const qrImg = document.getElementById("img");
+  const downloadBtn = document.getElementById("download");
+
+          downloadBtn.addEventListener("click", function () {
+    const link = document.createElement("a");
+    link.href = qrImg.src;
+    link.download = "my-qr-code.png";
+    link.click();
+  });
+    </script>
+</body>
+</html>
